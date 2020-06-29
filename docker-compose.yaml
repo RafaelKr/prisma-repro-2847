@@ -1,0 +1,19 @@
+version: '3.7'
+
+volumes:
+  repro_2847_postgres:
+    name: repro_2847_postgres
+
+services:
+  postgres:
+    container_name: repro_2847_postgres
+    image: kartoza/postgis:12.0
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:5432:5432
+    environment:
+      POSTGRES_USER: repro_2847
+      POSTGRES_PASSWORD: prisma2
+      POSTGRES_DB: repro_2847
+    volumes:
+      - repro_2847_postgres:/var/lib/postgresql/data
