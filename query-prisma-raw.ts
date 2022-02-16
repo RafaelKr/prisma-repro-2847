@@ -20,7 +20,7 @@ WHERE
 `
 
 const queryTaggedTemplate = (areaCenter: AreaCenter) =>
-prisma.queryRaw`
+prisma.$queryRaw`
 SELECT
 	*
 FROM
@@ -38,7 +38,7 @@ async function main(areaCenter: AreaCenter, type: QueryType) {
 			break
 		case 'function':
 		default:
-			result = await prisma.queryRaw(query, [areaCenter.lng, areaCenter.lat])
+			result = await prisma.$queryRawUnsafe(query, [areaCenter.lng, areaCenter.lat])
 			break
 	}
 
@@ -53,5 +53,5 @@ main({
 		throw e
 	})
 	.finally(async () => {
-		await prisma.disconnect()
+		await prisma.$disconnect()
 	})

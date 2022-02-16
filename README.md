@@ -12,7 +12,7 @@ npm install
 sleep 3
 
 # create table in Postgres database
-npx prisma migrate up --experimental
+npx prisma migrate dev
 
 # seed some data
 npm run seed
