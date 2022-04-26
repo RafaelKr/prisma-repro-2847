@@ -23,7 +23,7 @@ npm run seed
 npm run query:pg
 ```
 
-## Failing example with prisma queryRaw
+## (Not anymore) failing examples with prisma queryRaw
 ```bash
 # use queryRaw as function (https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access#queryraw)
 npm run query:prisma:function
