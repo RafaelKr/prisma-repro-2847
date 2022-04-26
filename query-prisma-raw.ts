@@ -38,7 +38,7 @@ async function main(areaCenter: AreaCenter, type: QueryType) {
 			break
 		case 'function':
 		default:
-			result = await prisma.$queryRawUnsafe(query, [areaCenter.lng, areaCenter.lat])
+			result = await prisma.$queryRawUnsafe(query, areaCenter.lng, areaCenter.lat)
 			break
 	}
 
