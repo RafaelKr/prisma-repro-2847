@@ -7,13 +7,14 @@ volumes:
 services:
   postgres:
     container_name: repro_2847_postgres
-    image: kartoza/postgis:12.0
+    image: kartoza/postgis:13.0
     restart: unless-stopped
     ports:
       - 127.0.0.1:5432:5432
     environment:
       POSTGRES_USER: repro_2847
-      POSTGRES_PASSWORD: prisma2
-      POSTGRES_DB: repro_2847
+      POSTGRES_PASS: prisma2
+      POSTGRES_DBNAME: repro_2847
     volumes:
       - repro_2847_postgres:/var/lib/postgresql/data
+      - ./prisma/alter-extensions.sh:/docker-entrypoint-initdb.d/alter-extensions.sh
